@@ -1,9 +1,6 @@
-""" lists
-Simple program that allows management of a list by a user
-NB lists start at index number of 0 and so a list of four items goes from [0] to [3]"""
 import random
 import fileinput
-import atexit
+#import atexit This showed to not work properly
 
 items =[]
 for line in fileinput.input("shopping_list.txt"):
@@ -30,16 +27,12 @@ def manage_list():
             file.write(str(items[i]) + "\n")
         file.close()
         print ("Saved!")
-def bye():
+"""def bye():
     file = open("shopping_list.txt", "w")
     for i in range(0, len(items)):
         file.write(str(items[i]) + "\n")
     file.close()
-    print ("Saved!")
-"""def random_entry():
-    i =random.randint(0,len(items)-1)
-    print(items[i])"""
-
+    print ("Saved!")""" #Saving on exit didn't work properly
 print("List: ", items)
 
 while 1==1:
@@ -51,14 +44,4 @@ while 1==1:
     if choice.upper() == "V":
         print(items)
 
-atexit.register(bye)
-""" Tasks:
-1) Try the program as it is
-2) Create the if block and define the function for the view list option.
-TEST THIS CHANGE
-3) Add an option to allow the user to enter the greeting number to display
-TEST IT AGAIN
-4) For the Brave only.......Change the delete option so that the user enters the greeting
-   to delete rather than its index number"""
-#if finished:
-#    http://docs.python.org/3.3/tutorial/introduction.html OR continue Python for Kids#
+#atexit.register(bye) This didn't seem to work
